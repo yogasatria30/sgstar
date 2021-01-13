@@ -7,7 +7,6 @@
 #'
 #' @export
 #' @importFrom  tidyr gather
-#' @importFrom utils globalVariables
 #' @import dplyr
 #' @import ggplot2
 #'
