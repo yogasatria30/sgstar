@@ -1,0 +1,69 @@
+---
+output: github_document
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "man/figures/README-",
+  out.width = "100%"
+)
+```
+
+# sgstar
+
+<!-- badges: start -->
+<!-- badges: end -->
+A set of function that implementaion for seasonal spatio temporal analysis based on Seasonal Generalized Space-Time Autoregressive with Seemingly Unrelated Regression (S-GSTAR-SUR) Model by Setiawan et al.(2016)<Corpus ID: 189955959>.
+
+## Installation
+
+You can install the released version of sgstar from [CRAN](https://CRAN.R-project.org) with:
+
+``` r
+install.packages("sgstar")
+```
+
+## Example
+
+This is a basic example which shows you how to solve a common problem:
+
+```{r example sgstar}
+library(sgstar)
+#basic example code
+
+data("coords")
+data("simulatedata")
+
+#create weight matrix using distance inverse matrix
+
+z<-dist(coords,method = "euclidean")
+z <- as.matrix(z)
+
+matriksd <- 1/z
+matriksd[is.infinite(matriksd)] <- 0
+
+matriksd_w <- matriksd / rowSums(as.data.frame(matriksd))
+
+fit <- sgstar(data = simulatedata, w = matriksd_w, p = 2,ps = 1, s =4)
+fit
+```
+
+```{r example predict_sgstar}
+#example for predict 
+predict.fit <-predict_sgstar(fit,12)
+predict.fit
+```
+
+```{r example plot_sgstar}
+#example fo create plot
+plot1 <- plot_sgstar(fit)
+plot1
+```
+
+
+
+
