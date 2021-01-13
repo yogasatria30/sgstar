@@ -5,12 +5,12 @@
 
 <!-- badges: start -->
 
-<!-- badges: end -->
-
-A set of function that implementaion for seasonal spatio temporal
-analysis based on Seasonal Generalized Space-Time Autoregressive with
-Seemingly Unrelated Regression (S-GSTAR-SUR) Model by Setiawan et
-al.(2016)\<Corpus ID: 189955959\>.
+[![Travis build
+status](https://travis-ci.com/yogasatria30/sgstar.svg?branch=master)](https://travis-ci.com/yogasatria30/sgstar)
+<!-- badges: end --> A set of function that implementaion for seasonal
+spatio temporal analysis based on Seasonal Generalized Space-Time
+Autoregressive with Seemingly Unrelated Regression (S-GSTAR-SUR) Model
+by Setiawan et al.(2016)\<Corpus ID: 189955959\>.
 
 ## Installation
 

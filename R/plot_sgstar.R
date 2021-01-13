@@ -47,6 +47,7 @@ plot_sgstar <- function(formula){
   for (q in 1:ncol(formula$data)){
     temp[[q]] <- data.frame(dataset,fit) %>%
       select(c(1,1+q,ncol(formula$data)+q+1))%>%
+
       gather(categories,value,c(2:3))
 
     plott[[q]]<- ggplot(temp[[q]], aes(x = time, y = value, group=categories))+
