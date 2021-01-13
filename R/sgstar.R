@@ -31,7 +31,7 @@
 #'
 #' @export
 #' @importFrom utils stack
-#' @import nlme
+#' @importFrom nlme gls
 #'
 #' @examples
 #' library(sgstar)

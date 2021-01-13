@@ -62,7 +62,6 @@ predict.fit
 ```{r example plot_sgstar}
 #example fo create plot
 plot1 <- plot_sgstar(fit)
-plot1
 ```
 
 

@@ -7,8 +7,10 @@
 #'
 #' @export
 #' @importFrom  tidyr gather
+#' @importFrom utils globalVariables
 #' @import dplyr
 #' @import ggplot2
+#'
 #' @examples
 #' library(sgstar)
 #' data("coords")
@@ -26,7 +28,7 @@
 #'
 #' fit <- sgstar(data = simulatedata, w = matriksd_w, p = 2,ps = 1, s =4)
 #' plot1 <- plot_sgstar(fit)
-#' plot1
+#'
 #' \dontrun{
 #' fit <- sgstar(data = simulatedata, w = matriksd_w, p = 2,ps = 1, s =4)
 #' plot1 <- plot_sgstar(fit)
@@ -44,11 +46,12 @@ plot_sgstar <- function(formula){
 
   plott <- list()
   temp <- list()
+  categories <- c()
+  value <- c()
   for (q in 1:ncol(formula$data)){
     temp[[q]] <- data.frame(dataset,fit) %>%
       select(c(1,1+q,ncol(formula$data)+q+1))%>%
-
-      gather(categories,value,c(2:3))
+      gather(categories,value)
 
     plott[[q]]<- ggplot(temp[[q]], aes(x = time, y = value, group=categories))+
       geom_line(aes(color=categories)) + geom_point(aes(color=categories))
