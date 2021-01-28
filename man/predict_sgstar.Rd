@@ -36,10 +36,6 @@ fit <- sgstar(data = simulatedata, w = matriksd_w, p = 2,ps = 1, s =4)
 
 #predicting for 12 time ahead
 predict.fit <-predict_sgstar(fit,12)
-\dontrun{
-fit <- sgstar(data = simulatedata, w = matriksd_w, p = 2,ps = 1, s =4)
-predict.fit <-predict_sgstar(fit,12)
-}
 }
 \references{
 Setiawan, Suhartono, and Prastuti M.(2016).S GSTAR-SUR for Seasonal Spatio Temporal Data Forecasting. Malaysian Journal Of Mathematical Sciences.10.<Corpus ID :189955959>.

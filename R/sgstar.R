@@ -1,8 +1,6 @@
-
+#' @title Fit Seasonal Generalized Space Time Autoregressive Model
 #'
-#' @title Fit Seasonal Generalized Space-Time Autoregressive Model
-#'
-#' @description sgstar function return the parameter estimation of Seaonal Generalized Space-Time Autoregressive Model by using Generalized Least Square (GLS)
+#' @description sgstar function return the parameter estimation of Seaonal Generalized Space Time Autoregressive Model by using Generalized Least Square (GLS)
 #'
 #' @param data A dataframe that contain timeseries data with k column as space and n rows as time.
 #' @param w a spatial weight, matrix ncol(data) * ncol(data) with diagonal = 0.
@@ -51,9 +49,6 @@
 #' fit <- sgstar(data = simulatedata, w = matriksd_w, p = 2,ps = 1, s =4)
 #' fit
 #'
-#' \dontrun{
-#' fit <- sgstar(data = simulatedata, w = matriksd_w, p = 2,ps = 1, s =4)
-#' }
 #'
 #'
 #'
@@ -152,15 +147,19 @@ sgstar <- function(data,w,p,ps,s){
   fit <- summary(GSTARfit)
   fittedvalue <- GSTARfit$fitted
 
-  Coefficient<-as.data.frame(GSTARfit$coefficients)
+  Coefficient<-GSTARfit$coefficients
 
   MSE<-sum((GSTARfit$residuals)^2)/(n*k-ps*s*k)
   RMSE <- sqrt(MSE)
-  AIC<-AIC(GSTARfit)
+
+  param <- length(GSTARfit$coefficients)/k
 
   SSE <- sum((GSTARfit$residuals)^2)
   SST <- sum((ZT - (sum(ZT)/length(ZT)))^2)
 
+  obs <- length(GSTARfit$residuals)
+
+  AIC <- exp(param/obs)*SSE/obs
   R2 <- 1-SSE/SST
 
   Performance<-data.frame(MSE=MSE, RMSE=RMSE,AIC=AIC, Rsquare=R2)

@@ -33,9 +33,6 @@ matriksd_w <- matriksd / rowSums(as.data.frame(matriksd))
 fit <- sgstar(data = simulatedata, w = matriksd_w, p = 2,ps = 1, s =4)
 plot1 <- plot_sgstar(fit)
 
-\dontrun{
-fit <- sgstar(data = simulatedata, w = matriksd_w, p = 2,ps = 1, s =4)
-plot1 <- plot_sgstar(fit)
-}
+
 
 }

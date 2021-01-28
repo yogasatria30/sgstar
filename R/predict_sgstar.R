@@ -30,10 +30,7 @@
 #'
 #' #predicting for 12 time ahead
 #' predict.fit <-predict_sgstar(fit,12)
-#' \dontrun{
-#' fit <- sgstar(data = simulatedata, w = matriksd_w, p = 2,ps = 1, s =4)
-#' predict.fit <-predict_sgstar(fit,12)
-#' }
+
 
 predict_sgstar<- function(formula, n_time){
   c<- n_time

@@ -2,7 +2,7 @@
 % Please edit documentation in R/sgstar.R
 \name{sgstar}
 \alias{sgstar}
-\title{Fit Seasonal Generalized Space-Time Autoregressive Model}
+\title{Fit Seasonal Generalized Space Time Autoregressive Model}
 \usage{
 sgstar(data, w, p, ps, s)
 }
@@ -36,7 +36,7 @@ sgstar returns output with detail are shown in the following list :
 \item{data}{a dataset that used in modeling}
 }
 \description{
-sgstar function return the parameter estimation of Seaonal Generalized Space-Time Autoregressive Model by using Generalized Least Square (GLS)
+sgstar function return the parameter estimation of Seaonal Generalized Space Time Autoregressive Model by using Generalized Least Square (GLS)
 }
 \examples{
 library(sgstar)
@@ -56,9 +56,6 @@ matriksd_w <- matriksd / rowSums(as.data.frame(matriksd))
 fit <- sgstar(data = simulatedata, w = matriksd_w, p = 2,ps = 1, s =4)
 fit
 
-\dontrun{
-fit <- sgstar(data = simulatedata, w = matriksd_w, p = 2,ps = 1, s =4)
-}
 
 
 
